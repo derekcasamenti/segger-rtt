@@ -1,0 +1,54 @@
+option('max_num_up_buffers',
+    type : 'integer',
+    min : 0,
+    value : 3,
+    description : 'Max. number of up-buffers (T->H) available on this target.'
+)
+
+option('max_num_down_buffers',
+    type : 'integer',
+    min : 0,
+    value : 3,
+    description : 'Max. number of down-buffers (H->T) available on this target.'
+)
+
+option('buffer_size_up',
+    type : 'integer',
+    min : 0,
+    value : 1024,
+    description : 'Size of the buffer for terminal output of target, up to host.'
+)
+
+option('buffer_size_down',
+    type : 'integer',
+    min : 0,
+    value : 16,
+    description : 'Size of the buffer for terminal input to target from host (Usually keyboard input).'
+)
+
+option('printf_buffer_size',
+    type : 'integer',
+    min : 0,
+    value : 64,
+    description : 'Size of buffer for RTT printf to bulk-send chars via RTT.'
+)
+
+option('mode_default',
+    type : 'combo',
+    choices : ['NO_BLOCK_SKIP', 'NO_BLOCK_TRIM', 'IF_FIFO_FULL'],
+    value : 'NO_BLOCK_SKIP',
+    description : 'Mode for pre-initialized terminal channel.'
+)
+
+option('memcpy_use_byteloop',
+    type : 'boolean',
+    value : 'false',
+    description : 'A simple byte loop can be used instead of memcpy.'
+)
+
+option('max_interrupt_priority',
+    type : 'integer',
+    min : 0,
+    value : 0x20,
+    description : 'Interrupt priority to lock on SEGGER_RTT_LOCK on Cortex-M3/4'
+)
